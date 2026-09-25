@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Privy | Private messenger for the Philippines</title>
+  <meta name="description" content="Privy is an end-to-end encrypted messenger that signs you up with a random ID instead of your SIM. No phone number, no real name.">
+  <meta name="color-scheme" content="dark">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#15130F',
+            surface: '#1F1C18',
+            raised: '#2A2621',
+            line: '#3B362E',
+            ink: '#F3EFE8',
+            muted: '#A8A196',
+            teal: { DEFAULT: '#3E9088', deep: '#24534D', light: '#4AA198', press: '#33807A' },
+            warn: '#E0A458'
+          },
+          fontFamily: {
+            sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      box-sizing: border-box;
+      color-scheme: dark;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; background: #15130F; -webkit-text-size-adjust: 100%; }
+    body { background: #15130F; color: #F3EFE8; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    :focus-visible { outline: 2px solid #4AA198; outline-offset: 3px; border-radius: 4px; }
+    summary { list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    details[open] > p { animation: faq-open 200ms ease-out; }
+    @keyframes faq-open { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+    /* Copy button confirmed state */
+    #copy-btn.is-copied { background: #3E9088; color: #15130F; border-color: #3E9088; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+
+<body id="top" class="bg-canvas font-sans text-ink leading-relaxed">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded-md focus:bg-teal focus:px-4 focus:py-2 focus:font-medium focus:text-canvas">Skip to content</a>
+
+  <!-- Header -->
+  <header class="border-b border-line">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4">
+      <a href="#top" class="flex shrink-0 items-center gap-2 text-lg font-semibold tracking-tight" aria-label="Privy home">
+        <span class="grid h-7 w-7 place-items-center rounded-md bg-teal text-canvas" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
+        </span>
+        Privy
+      </a>
+      <nav class="hidden items-center gap-8 text-sm text-muted md:flex" aria-label="Main">
+        <a href="#features" class="transition-colors hover:text-ink">Features</a>
+        <a href="#how-it-works" class="transition-colors hover:text-ink">How it works</a>
+        <a href="#faq" class="transition-colors hover:text-ink">FAQ</a>
+      </nav>
+      <a href="#download" aria-label="Download Privy for Android"
+         class="rounded-md bg-teal px-4 py-2.5 text-sm font-medium text-canvas transition-colors hover:bg-teal-light active:bg-teal-press">
+        <span class="sm:hidden">Download</span><span class="hidden sm:inline">Download Privy for Android</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1. Hero -->
+    <section class="py-16 md:py-20">
+      <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-5 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+        <div>
+          <h1 class="max-w-2xl text-[2rem] font-semibold leading-[1.12] tracking-tight sm:text-5xl lg:text-[3.5rem]">
+            Chat privately in the Philippines, without handing over your phone number.
+          </h1>
+          <p class="mt-6 max-w-xl text-base text-muted sm:text-lg">
+            Privy is an end-to-end encrypted messenger that signs you up with a random ID instead of your SIM. No phone number, no real name, no link to your registered identity.
+          </p>
+          <div class="mt-9">
+            <a id="download" href="#"
+               class="inline-flex w-full items-center justify-center rounded-md bg-teal px-6 py-3.5 text-base font-medium text-canvas transition-colors hover:bg-teal-light active:bg-teal-press sm:w-auto">Download Privy for Android</a>
+            <p class="mt-3 text-sm text-muted">Free to download. Your ID is ready in seconds.</p>
+          </div>
+        </div>
+
+        <!-- Onboarding mockup -->
+        <div class="mx-auto w-full max-w-[320px]">
+          <div class="rounded-[28px] border border-line bg-canvas p-2">
+            <div class="rounded-[22px] border border-line bg-surface p-4 sm:p-5">
+              <div class="flex items-center gap-2 text-sm font-semibold">
+                <span class="grid h-6 w-6 place-items-center rounded bg-teal text-canvas" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
+                </span>
+                Privy
+              </div>
+
+              <h2 class="mt-8 text-xl font-semibold tracking-tight">Your ID is ready</h2>
+              <p class="mt-1 inline-flex items-center gap-1.5 text-sm text-muted">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4AA198" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                No phone number needed
+              </p>
+
+              <div class="mt-6 rounded-lg border border-line bg-canvas p-4">
+                <p class="text-xs text-muted">Your Privy ID</p>
+                <div class="mt-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
+                  <span id="privy-id" class="font-mono text-xl font-medium tracking-widest sm:text-2xl">PX7K-2M9L</span>
+                  <button id="copy-btn" type="button"
+                    class="inline-flex min-h-[40px] items-center gap-1.5 rounded-md border border-teal/60 bg-teal-deep px-3 py-2 text-sm font-medium text-ink transition-colors hover:border-teal hover:bg-teal hover:text-canvas active:bg-teal-press">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>
+                    <span id="copy-label">Copy</span>
+                  </button>
+                </div>
+              </div>
+              <span id="copy-status" class="sr-only" role="status" aria-live="polite"></span>
+
+              <ul class="mt-5 space-y-2 text-sm text-muted">
+                <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-teal"></span>No SIM linked</li>
+                <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-teal"></span>No real name</li>
+                <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-teal"></span>No contacts list uploaded</li>
+              </ul>
+
+              <button type="button" class="mt-6 w-full rounded-md bg-teal py-3 text-sm font-medium text-canvas transition-colors hover:bg-teal-light active:bg-teal-press">Start chatting</button>
+              <p class="mt-3 text-center text-xs text-muted">Share this ID instead of a phone number.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Trust anchors -->
+    <section class="border-y border-line bg-surface" aria-label="Security facts">
+      <div class="mx-auto grid max-w-6xl divide-y divide-line px-4 sm:grid-cols-2 sm:gap-y-8 sm:divide-y-0 sm:px-5 sm:py-10 lg:grid-cols-4">
+        <div class="py-5 sm:py-0 lg:border-r lg:border-line lg:pr-8">
+          <p class="font-semibold">Signal Protocol encryption</p>
+          <p class="mt-1 text-sm text-muted">on every message, call, and file</p>
+        </div>
+        <div class="py-5 sm:py-0 lg:border-r lg:border-line lg:px-8">
+          <p class="font-semibold"><span class="font-mono">0</span> phone numbers</p>
+          <p class="mt-1 text-sm text-muted">collected or stored</p>
+        </div>
+        <div class="py-5 sm:py-0 lg:border-r lg:border-line lg:px-8">
+          <p class="font-semibold">Encrypted by default.</p>
+          <p class="mt-1 text-sm text-muted">Nothing to turn on.</p>
+        </div>
+        <div class="py-5 sm:py-0 lg:pl-8">
+          <p class="font-semibold">Scam link checks</p>
+          <p class="mt-1 text-sm text-muted">run on your device before you tap</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Problem -->
+    <section class="py-16 md:py-20">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 sm:px-5 lg:grid-cols-2 lg:gap-16">
+        <h2 class="max-w-md text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-4xl">
+          Your phone number is tied to your name. Every app that asks for it can trace you.
+        </h2>
+        <div class="max-w-xl space-y-5 text-base text-muted sm:text-lg">
+          <p>Since the SIM Registration Act, every mobile number in the Philippines is linked to a government ID. Any messenger that signs you up with that number can connect your chats to who you are. If that data leaks, it leaks with your name attached.</p>
+          <p>Meanwhile, fake GCash texts and phishing links fill our inboxes, and scammers already know how to reach people through their numbers. Messaging apps built on advertising also learn from what you say and who you talk to.</p>
+          <p class="border-l-2 border-teal pl-4 font-medium text-ink">You shouldn't have to give up your identity just to send a message.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Solution & features -->
+    <section id="features" class="border-t border-line bg-surface py-16 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-5">
+        <h2 class="max-w-2xl text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-4xl">A messenger that never asks who you are.</h2>
+
+        <div class="mt-10 grid gap-12 lg:mt-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
+          <!-- Feature list -->
+          <div class="divide-y divide-line border-y border-line">
+            <div class="py-6">
+              <h3 class="text-lg font-semibold">No-phone registration</h3>
+              <p class="mt-2 text-muted">Get an app-generated ID in seconds. Your SIM, your name, and your contacts list stay out of it.</p>
+            </div>
+            <div class="py-6">
+              <h3 class="text-lg font-semibold">Encrypted by default</h3>
+              <p class="mt-2 text-muted">Every conversation uses the Signal Protocol automatically. Only you and the person you're talking to can read it, not even us.</p>
+            </div>
+            <div class="py-6">
+              <h3 class="text-lg font-semibold">In-chat Scam Guard</h3>
+              <p class="mt-2 text-muted">Privy checks links before you open them and warns you about known phishing pages, including fake payment and delivery links.</p>
+            </div>
+            <div class="py-6">
+              <h3 class="text-lg font-semibold">Screenshot protection and auto-delete</h3>
+              <p class="mt-2 text-muted">Get alerted or blocked when someone tries to screenshot a chat, and set messages to disappear after a time you choose.</p>
+            </div>
+            <div class="py-6">
+              <h3 class="text-lg font-semibold">Verified Business badges</h3>
+              <p class="mt-2 text-muted">Buying or selling online? A badge shows you're dealing with a checked seller, not a stranger with a new account.</p>
+            </div>
+          </div>
+
+          <!-- Chat mockups -->
+          <div class="flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:justify-center">
+
+            <!-- Conversation list -->
+            <div class="w-full min-w-0 max-w-[300px] rounded-[28px] border border-line bg-canvas p-2 sm:flex-1">
+              <div class="overflow-hidden rounded-[22px] border border-line bg-surface">
+                <div class="flex items-center justify-between border-b border-line px-4 py-3">
+                  <span class="font-semibold">Chats</span>
+                  <span class="text-xs text-muted">Auto-delete</span>
+                </div>
+                <ul class="divide-y divide-line">
+                  <li class="flex cursor-pointer items-start gap-3 px-4 py-3 transition-colors hover:bg-raised active:bg-raised focus-within:bg-raised">
+                    <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-raised text-sm font-medium">M</span>
+                    <div class="min-w-0 flex-1">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="flex min-w-0 items-center gap-1 text-sm font-medium"><span class="truncate">Mika's Preloved</span>
+                          <svg class="shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="#4AA198" role="img" aria-label="Verified Business"><path d="M12 2l2.4 2 3.1-.2 1 3 2.7 1.6-.9 3 .9 3-2.7 1.6-1 3-3.1-.2L12 22l-2.4-2-3.1.2-1-3L2.8 15.6l.9-3-.9-3L5.5 8l1-3 3.1.2L12 2z"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="#15130F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span class="shrink-0 font-mono text-[11px] text-muted">2m</span>
+                      </div>
+                      <div class="mt-0.5 flex items-center justify-between gap-2">
+                        <p class="truncate text-sm text-muted">Paid na po. Sent ko na yung screenshot.</p>
+                        <span class="shrink-0 rounded-full border border-teal/50 bg-teal-deep px-2 py-0.5 font-mono text-[11px]">1h</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="flex cursor-pointer items-start gap-3 px-4 py-3 transition-colors hover:bg-raised active:bg-raised">
+                    <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-raised text-sm font-medium">J</span>
+                    <div class="min-w-0 flex-1">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="truncate text-sm font-medium">Kuya Jomar</span>
+                        <span class="shrink-0 font-mono text-[11px] text-muted">14m</span>
+                      </div>
+                      <div class="mt-0.5 flex items-center justify-between gap-2">
+                        <p class="truncate text-sm text-muted">Sige, i-delete ko na after.</p>
+                        <span class="shrink-0 rounded-full border border-teal/50 bg-teal-deep px-2 py-0.5 font-mono text-[11px]">5m</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="flex cursor-pointer items-start gap-3 px-4 py-3 transition-colors hover:bg-raised active:bg-raised">
+                    <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-raised text-sm font-medium">B</span>
+                    <div class="min-w-0 flex-1">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="truncate text-sm font-medium">Ate Bea</span>
+                        <span class="shrink-0 font-mono text-[11px] text-muted">1h</span>
+                      </div>
+                      <div class="mt-0.5 flex items-center justify-between gap-2">
+                        <p class="truncate text-sm text-muted">Nasend ko na yung address, ha.</p>
+                        <span class="shrink-0 rounded-full border border-teal/50 bg-teal-deep px-2 py-0.5 font-mono text-[11px]">1d</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="flex cursor-pointer items-start gap-3 px-4 py-3 transition-colors hover:bg-raised active:bg-raised">
+                    <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-raised text-sm font-medium">C</span>
+                    <div class="min-w-0 flex-1">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="flex min-w-0 items-center gap-1 text-sm font-medium"><span class="truncate">Coco Kape Orders</span>
+                          <svg class="shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="#4AA198" role="img" aria-label="Verified Business"><path d="M12 2l2.4 2 3.1-.2 1 3 2.7 1.6-.9 3 .9 3-2.7 1.6-1 3-3.1-.2L12 22l-2.4-2-3.1.2-1-3L2.8 15.6l.9-3-.9-3L5.5 8l1-3 3.1.2L12 2z"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="#15130F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span class="shrink-0 font-mono text-[11px] text-muted">3h</span>
+                      </div>
+                      <div class="mt-0.5 flex items-center justify-between gap-2">
+                        <p class="truncate text-sm text-muted">Ready na po yung order niyo.</p>
+                        <span class="shrink-0 rounded-full border border-teal/50 bg-teal-deep px-2 py-0.5 font-mono text-[11px]">1d</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Chat thread -->
+            <div class="w-full min-w-0 max-w-[300px] rounded-[28px] border border-line bg-canvas p-2 sm:flex-1">
+              <div class="overflow-hidden rounded-[22px] border border-line bg-surface">
+                <div class="flex items-center justify-between gap-2 border-b border-line px-4 py-3">
+                  <div class="flex min-w-0 items-center gap-2">
+                    <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-raised text-sm font-medium">P</span>
+                    <span class="truncate text-sm font-medium">Paolo R.</span>
+                  </div>
+                  <span class="shrink-0 rounded-full border border-teal/50 bg-teal-deep px-2 py-0.5 font-mono text-[11px]">1h</span>
+                </div>
+
+                <div class="space-y-3 px-4 py-4">
+                  <div class="flex items-start gap-2 rounded-md border border-line bg-canvas px-3 py-2 text-xs text-muted">
+                    <svg class="mt-0.5 shrink-0" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4AA198" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+                    <span>Messages are end-to-end encrypted. Only you and Paolo can read them.</span>
+                  </div>
+
+                  <div class="max-w-[88%] rounded-2xl rounded-tl-sm bg-raised px-3 py-2 text-sm">
+                    Available pa yung item po?
+                    <span class="mt-1 block font-mono text-[10px] text-muted">9:41</span>
+                  </div>
+                  <div class="ml-auto max-w-[88%] rounded-2xl rounded-tr-sm bg-teal-deep px-3 py-2 text-sm">
+                    Opo, available pa. Ilan po kukunin niyo?
+                    <span class="mt-1 block text-right font-mono text-[10px] text-ink/70">9:42</span>
+                  </div>
+                  <div class="max-w-[88%] rounded-2xl rounded-tl-sm bg-raised px-3 py-2 text-sm">
+                    Isa lang po. Paid na po, dito yung proof: <span class="break-all font-mono text-xs underline decoration-warn underline-offset-2">gcash-verify-refund.top</span>
+                    <span class="mt-1 block font-mono text-[10px] text-muted">9:44</span>
+                  </div>
+
+                  <div class="flex items-start gap-2 rounded-md border border-warn/60 bg-canvas px-3 py-2 text-xs">
+                    <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E0A458" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18h.01"/></svg>
+                    <span><span class="font-semibold text-warn">Scam Guard:</span> This link matches a known phishing pattern. Don't open it.</span>
+                  </div>
+
+                  <div class="ml-auto max-w-[88%] rounded-2xl rounded-tr-sm bg-teal-deep px-3 py-2 text-sm">
+                    Hindi ko po bubuksan yan. Pa-send na lang ng screenshot.
+                    <span class="mt-1 block text-right font-mono text-[10px] text-ink/70">9:45</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. How it works -->
+    <section id="how-it-works" class="py-16 md:py-20">
+      <div class="mx-auto grid max-w-6xl items-start gap-12 px-4 sm:px-5 lg:grid-cols-[1fr_0.8fr] lg:gap-14">
+        <div>
+          <h2 class="text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-4xl">Start chatting in three steps.</h2>
+          <ol class="mt-10 space-y-8">
+            <li class="flex gap-4 sm:gap-5">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-teal bg-teal-deep font-mono text-sm">1</span>
+              <div>
+                <h3 class="text-lg font-semibold">Download Privy.</h3>
+                <p class="mt-1 max-w-md text-muted">Get it free. No sign-up form, no phone verification.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 sm:gap-5">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-teal bg-teal-deep font-mono text-sm">2</span>
+              <div>
+                <h3 class="text-lg font-semibold">Get your Privy ID.</h3>
+                <p class="mt-1 max-w-md text-muted">The app creates a random ID for you. It isn't linked to your SIM or your name.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 sm:gap-5">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-teal bg-teal-deep font-mono text-sm">3</span>
+              <div>
+                <h3 class="text-lg font-semibold">Share your ID and chat.</h3>
+                <p class="mt-1 max-w-md text-muted">Send your ID to friends, family, or customers. Everything you send is encrypted from the first message.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Add contact card -->
+        <div class="mx-auto w-full max-w-[340px] rounded-[28px] border border-line bg-canvas p-2">
+          <div class="rounded-[22px] border border-line bg-surface p-4 sm:p-5">
+            <h3 class="text-lg font-semibold tracking-tight">Add contact</h3>
+
+            <div class="mt-5 grid place-items-center rounded-lg border border-line bg-canvas py-7" aria-hidden="true">
+              <div class="relative h-24 w-24">
+                <span class="absolute left-0 top-0 h-5 w-5 rounded-tl-md border-l-2 border-t-2 border-teal"></span>
+                <span class="absolute right-0 top-0 h-5 w-5 rounded-tr-md border-r-2 border-t-2 border-teal"></span>
+                <span class="absolute bottom-0 left-0 h-5 w-5 rounded-bl-md border-b-2 border-l-2 border-teal"></span>
+                <span class="absolute bottom-0 right-0 h-5 w-5 rounded-br-md border-b-2 border-r-2 border-teal"></span>
+                <svg class="absolute inset-4" viewBox="0 0 24 24" fill="#3B362E"><rect x="1" y="1" width="6" height="6"/><rect x="17" y="1" width="6" height="6"/><rect x="1" y="17" width="6" height="6"/><rect x="9" y="3" width="3" height="3"/><rect x="9" y="9" width="6" height="3"/><rect x="17" y="10" width="3" height="3"/><rect x="10" y="15" width="3" height="3"/><rect x="16" y="17" width="6" height="3"/><rect x="3" y="10" width="3" height="3"/></svg>
+              </div>
+            </div>
+
+            <button id="scan-btn" type="button"
+              class="mt-4 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md bg-teal py-3 text-sm font-medium text-canvas transition hover:bg-teal-light hover:ring-4 hover:ring-teal/25 active:bg-teal-press active:ring-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 012-2h2M16 4h2a2 2 0 012 2v2M20 16v2a2 2 0 01-2 2h-2M8 20H6a2 2 0 01-2-2v-2M4 12h16"/></svg>
+              Scan a QR code
+            </button>
+
+            <div class="my-5 flex items-center gap-3 text-xs text-muted">
+              <span class="h-px flex-1 bg-line"></span>or enter an ID<span class="h-px flex-1 bg-line"></span>
+            </div>
+
+            <label for="contact-id" class="text-xs text-muted">Privy ID</label>
+            <input id="contact-id" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="9" placeholder="XXXX-XXXX"
+              class="mt-1.5 w-full rounded-md border border-line bg-canvas px-3 py-2.5 font-mono text-base uppercase tracking-widest text-ink transition-colors placeholder:text-muted/60 hover:border-muted/50 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/40">
+            <button type="button"
+              class="mt-3 min-h-[44px] w-full rounded-md border border-teal/60 bg-teal-deep py-2.5 text-sm font-medium transition-colors hover:border-teal hover:bg-teal hover:text-canvas active:bg-teal-press">Add contact</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FAQ -->
+    <section id="faq" class="border-t border-line bg-surface py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 sm:px-5">
+        <h2 class="text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-4xl">Frequently asked questions</h2>
+
+        <div class="mt-10 divide-y divide-line border-y border-line">
+          <details class="group" open>
+            <summary class="flex min-h-[56px] cursor-pointer select-none items-center justify-between gap-4 py-4 text-base font-medium transition-colors hover:text-teal-light sm:text-lg">
+              Is Privy free to use?
+              <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="max-w-2xl pb-5 text-muted">Yes. Downloading Privy and creating your ID costs nothing, and there is no registration fee.</p>
+          </details>
+
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer select-none items-center justify-between gap-4 py-4 text-base font-medium transition-colors hover:text-teal-light sm:text-lg">
+              How do you register without a phone number?
+              <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="max-w-2xl pb-5 text-muted">When you open the app, Privy generates a random ID on your device. You share that ID with people you want to talk to, instead of a phone number. We never ask for your number, email, or real name.</p>
+          </details>
+
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer select-none items-center justify-between gap-4 py-4 text-base font-medium transition-colors hover:text-teal-light sm:text-lg">
+              Is it really end-to-end encrypted by default?
+              <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="max-w-2xl pb-5 text-muted">Yes. All chats use the Signal Protocol from the first message, and there is no setting to enable. Messages are locked on your device and can only be opened by the person you sent them to.</p>
+          </details>
+
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer select-none items-center justify-between gap-4 py-4 text-base font-medium transition-colors hover:text-teal-light sm:text-lg">
+              How does Verified Business work?
+              <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="max-w-2xl pb-5 text-muted">Sellers can apply for a Verified Business badge. Once approved, the badge appears on their profile so buyers can tell them apart from anonymous accounts. Buyers don't need to verify anything to use Privy.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Final CTA -->
+    <section class="py-16 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-5">
+        <div class="rounded-2xl border border-line bg-surface px-5 py-12 text-center sm:px-12 md:py-20">
+          <h2 class="mx-auto max-w-2xl text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-4xl">Keep your conversations yours.</h2>
+          <p class="mx-auto mt-4 max-w-lg text-base text-muted sm:text-lg">Get a Privy ID and message without your phone number attached.</p>
+          <a href="#"
+             class="mt-9 inline-flex w-full items-center justify-center rounded-md bg-teal px-7 py-3.5 text-base font-medium text-canvas transition-colors hover:bg-teal-light active:bg-teal-press sm:w-auto">Get Your Anonymous ID</a>
+          <p class="mt-3 text-sm text-muted">Free on Android.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:px-5">
+      <span class="flex items-center gap-2 font-semibold text-ink">
+        <span class="grid h-6 w-6 place-items-center rounded bg-teal text-canvas" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
+        </span>
+        Privy
+      </span>
+      <span>&copy; 2026 Privy. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('copy-btn');
+      var label = document.getElementById('copy-label');
+      var status = document.getElementById('copy-status');
+      var idEl = document.getElementById('privy-id');
+      if (!btn) return;
+      var timer;
+
+      function done() {
+        label.textContent = 'Copied';
+        btn.classList.add('is-copied');
+        status.textContent = 'Privy ID copied to clipboard';
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          label.textContent = 'Copy';
+          btn.classList.remove('is-copied');
+          status.textContent = '';
+        }, 2000);
+      }
+
+      function fallback(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+
+      btn.addEventListener('click', function () {
+        var text = idEl.textContent.trim();
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, function () { fallback(text); });
+          } else {
+            fallback(text);
+          }
+        } catch (e) {
+          fallback(text);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
