@@ -87,9 +87,9 @@
         <a href="#how-it-works" class="transition-colors hover:text-ink">How it works</a>
         <a href="#faq" class="transition-colors hover:text-ink">FAQ</a>
       </nav>
-      <a href="#download" aria-label="Download Privy for Android"
+      <a href="#waitlist" aria-label="Join the Privy waitlist"
          class="rounded-md bg-teal px-4 py-2.5 text-sm font-medium text-canvas transition-colors hover:bg-teal-light active:bg-teal-press">
-        <span class="sm:hidden">Download</span><span class="hidden sm:inline">Download Privy for Android</span>
+        <span class="sm:hidden">Join</span><span class="hidden sm:inline">Join the waitlist</span>
       </a>
     </div>
   </header>
@@ -106,10 +106,28 @@
           <p class="mt-6 max-w-xl text-base text-muted sm:text-lg">
             Privy is an end-to-end encrypted messenger that signs you up with a random ID instead of your SIM. No phone number, no real name, no link to your registered identity.
           </p>
-          <div class="mt-9">
-            <a id="download" href="#"
-               class="inline-flex w-full items-center justify-center rounded-md bg-teal px-6 py-3.5 text-base font-medium text-canvas transition-colors hover:bg-teal-light active:bg-teal-press sm:w-auto">Download Privy for Android</a>
-            <p class="mt-3 text-sm text-muted">Free to download. Your ID is ready in seconds.</p>
+          <div id="waitlist" class="mt-9 scroll-mt-6">
+            <form data-waitlist novalidate class="w-full max-w-md text-left">
+              <input type="email" name="email" required maxlength="254"
+                     placeholder="you@example.com" autocomplete="email" aria-label="Email address"
+                     class="w-full rounded-md border border-line bg-canvas px-4 py-3.5 text-base text-ink transition-colors placeholder:text-muted/60 hover:border-muted/50 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/40">
+              <input type="text" name="company" tabindex="-1" autocomplete="off"
+                     aria-hidden="true" style="position:absolute;left:-9999px">
+
+              <label class="mt-4 flex cursor-pointer items-start gap-3 text-sm text-muted transition-colors hover:text-ink">
+                <input type="checkbox" name="test" class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-line bg-canvas accent-[#3E9088]">
+                <span>I use Android and would like to help test the first version</span>
+              </label>
+              <label class="mt-3 flex cursor-pointer items-start gap-3 text-sm text-muted transition-colors hover:text-ink">
+                <input type="checkbox" name="consent" class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-line bg-canvas accent-[#3E9088]">
+                <span>I agree to be emailed about Privy's launch. <a href="privacy.html" class="text-teal-light underline underline-offset-2 hover:text-ink">Privacy notice</a></span>
+              </label>
+
+              <button type="submit" data-btn
+                      class="mt-5 inline-flex w-full items-center justify-center rounded-md bg-teal px-6 py-3.5 text-base font-medium text-canvas transition-colors hover:bg-teal-light active:bg-teal-press disabled:cursor-not-allowed disabled:opacity-60">Join the waitlist</button>
+              <p data-msg role="status" aria-live="polite" class="mt-3 min-h-[1.25rem] text-sm"></p>
+            </form>
+            <p class="mt-1 max-w-md text-sm text-muted">No spam. One email at launch and occasional build updates. Unsubscribe anytime.</p>
           </div>
         </div>
 
@@ -454,9 +472,29 @@
         <div class="rounded-2xl border border-line bg-surface px-5 py-12 text-center sm:px-12 md:py-20">
           <h2 class="mx-auto max-w-2xl text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-4xl">Keep your conversations yours.</h2>
           <p class="mx-auto mt-4 max-w-lg text-base text-muted sm:text-lg">Get a Privy ID and message without your phone number attached.</p>
-          <a href="#"
-             class="mt-9 inline-flex w-full items-center justify-center rounded-md bg-teal px-7 py-3.5 text-base font-medium text-canvas transition-colors hover:bg-teal-light active:bg-teal-press sm:w-auto">Get Your Anonymous ID</a>
-          <p class="mt-3 text-sm text-muted">Free on Android.</p>
+          <div class="mx-auto mt-9 flex max-w-md flex-col items-stretch">
+            <form data-waitlist novalidate class="w-full max-w-md text-left">
+              <input type="email" name="email" required maxlength="254"
+                     placeholder="you@example.com" autocomplete="email" aria-label="Email address"
+                     class="w-full rounded-md border border-line bg-canvas px-4 py-3.5 text-base text-ink transition-colors placeholder:text-muted/60 hover:border-muted/50 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/40">
+              <input type="text" name="company" tabindex="-1" autocomplete="off"
+                     aria-hidden="true" style="position:absolute;left:-9999px">
+
+              <label class="mt-4 flex cursor-pointer items-start gap-3 text-sm text-muted transition-colors hover:text-ink">
+                <input type="checkbox" name="test" class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-line bg-canvas accent-[#3E9088]">
+                <span>I use Android and would like to help test the first version</span>
+              </label>
+              <label class="mt-3 flex cursor-pointer items-start gap-3 text-sm text-muted transition-colors hover:text-ink">
+                <input type="checkbox" name="consent" class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-line bg-canvas accent-[#3E9088]">
+                <span>I agree to be emailed about Privy's launch. <a href="privacy.html" class="text-teal-light underline underline-offset-2 hover:text-ink">Privacy notice</a></span>
+              </label>
+
+              <button type="submit" data-btn
+                      class="mt-5 inline-flex w-full items-center justify-center rounded-md bg-teal px-6 py-3.5 text-base font-medium text-canvas transition-colors hover:bg-teal-light active:bg-teal-press disabled:cursor-not-allowed disabled:opacity-60">Join the waitlist</button>
+              <p data-msg role="status" aria-live="polite" class="mt-3 min-h-[1.25rem] text-sm"></p>
+            </form>
+            <p class="text-sm text-muted">No spam. One email at launch and occasional build updates. Unsubscribe anytime.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -474,6 +512,72 @@
       <span>&copy; 2026 Privy. All rights reserved.</span>
     </div>
   </footer>
+
+  <!-- Waitlist: Supabase client + form handler (Step 4) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    (function () {
+      var forms = document.querySelectorAll('form[data-waitlist]');
+      if (!forms.length) return;
+
+      // Replace these two values (Supabase: Project Settings > API).
+      // Use the public anon/publishable key only. Never put a secret key in this file.
+      var SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co';
+      var SUPABASE_ANON_KEY = 'YOUR-PUBLIC-ANON-KEY';
+
+      var sb = null;
+      try { sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); } catch (e) {}
+
+      var src = new URLSearchParams(location.search).get('src') || 'direct';
+      var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+      forms.forEach(function (form) {
+        var emailEl = form.querySelector('[name="email"]');
+        var honeypot = form.querySelector('[name="company"]');
+        var testEl = form.querySelector('[name="test"]');
+        var consentEl = form.querySelector('[name="consent"]');
+        var btn = form.querySelector('[data-btn]');
+        var msg = form.querySelector('[data-msg]');
+
+        function say(text, ok) {
+          msg.textContent = text;
+          msg.className = 'mt-3 min-h-[1.25rem] text-sm ' + (ok ? 'text-teal-light' : 'text-warn');
+        }
+
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          if (honeypot.value) return; // honeypot: bots fill this
+
+          var email = emailEl.value.trim().toLowerCase();
+          if (!EMAIL_RE.test(email)) { say('Please enter a valid email.', false); return; }
+          if (!consentEl.checked) { say('Please tick the consent box.', false); return; }
+          if (!sb) { say('Something went wrong. Please try again.', false); return; }
+
+          btn.disabled = true;
+          var result;
+          try {
+            result = await sb.from('waitlist').insert({
+              email: email,
+              source: src.slice(0, 40),
+              wants_to_test: testEl.checked,
+              consent: true
+            });
+          } catch (err) {
+            result = { error: err };
+          }
+          btn.disabled = false;
+
+          // 23505 = duplicate. Treat as success so we never reveal who is on the list.
+          if (result.error && result.error.code !== '23505') {
+            say('Something went wrong. Please try again.', false);
+            return;
+          }
+          say("You're on the list. We'll email you about launch.", true);
+          form.reset();
+        });
+      });
+    })();
+  </script>
 
   <script>
     (function () {
