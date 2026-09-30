@@ -451,7 +451,7 @@
               Is it really end-to-end encrypted by default?
               <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <p class="max-w-2xl pb-5 text-muted">Yes. All chats use the Signal Protocol from the first message, and there is no setting to enable. Messages are locked on your device and can only be opened by the person you sent them to.</p>
+            <p class="max-w-2xl pb-5 text-muted">Yes. All chats use the Signal Protocol from the first message, and there is no setting to enable. Messages are locked on your device and can only be opened by the person you sent them to. Privy is a young, independently built project and hasn't had an outside security audit yet — we'll say so publicly when that changes.</p>
           </details>
 
           <details class="group">
@@ -460,6 +460,38 @@
               <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
             <p class="max-w-2xl pb-5 text-muted">Sellers can apply for a Verified Business badge. Once approved, the badge appears on their profile so buyers can tell them apart from anonymous accounts. Buyers don't need to verify anything to use Privy.</p>
+          </details>
+
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer select-none items-center justify-between gap-4 py-4 text-base font-medium transition-colors hover:text-teal-light sm:text-lg">
+              When does Privy launch?
+              <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="max-w-2xl pb-5 text-muted">We're targeting [MONTH YEAR] for the first Android release. Waitlist members hear first.</p>
+          </details>
+
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer select-none items-center justify-between gap-4 py-4 text-base font-medium transition-colors hover:text-teal-light sm:text-lg">
+              Is there an iPhone version?
+              <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="max-w-2xl pb-5 text-muted">Android first. iOS comes after the Android version proves itself.</p>
+          </details>
+
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer select-none items-center justify-between gap-4 py-4 text-base font-medium transition-colors hover:text-teal-light sm:text-lg">
+              Who's behind Privy?
+              <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="max-w-2xl pb-5 text-muted">A solo developer in the Philippines.</p>
+          </details>
+
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer select-none items-center justify-between gap-4 py-4 text-base font-medium transition-colors hover:text-teal-light sm:text-lg">
+              What do you keep about me if I join the waitlist?
+              <span class="text-2xl leading-none text-teal transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="max-w-2xl pb-5 text-muted">Only what you type in the form, plus the link tag you came from. Delete on request — see the <a href="privacy.html" class="text-teal-light underline underline-offset-2 hover:text-ink">privacy notice</a>.</p>
           </details>
         </div>
       </div>
@@ -510,6 +542,13 @@
     </div>
   </footer>
 
+  <!-- Step 7: privacy-friendly visit counter (no cookies, no personal data, not Google Analytics or Meta Pixel).
+       Sign up free at https://www.goatcounter.com, then replace YOUR-CODE below with your site code.
+       Swap the src/data-goatcounter values if you pick Umami or Plausible instead — check each tool's
+       current free-tier terms before choosing. Remove this whole block if you'd rather skip a counter. -->
+  <script data-goatcounter="https://YOUR-CODE.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
   <!-- Waitlist: Supabase client + form handler (Step 4) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
@@ -548,7 +587,7 @@
           var email = emailEl.value.trim().toLowerCase();
           if (!EMAIL_RE.test(email)) { say('Please enter a valid email.', false); return; }
           if (!consentEl.checked) { say('Please tick the consent box.', false); return; }
-          if (!sb) { say('Something went wrong. Please try again.', false); return; }
+          if (!sb) { say('Something went wrong. Please try again in a minute.', false); return; }
 
           btn.disabled = true;
           var result;
@@ -566,7 +605,7 @@
 
           // 23505 = duplicate. Treat as success so we never reveal who is on the list.
           if (result.error && result.error.code !== '23505') {
-            say('Something went wrong. Please try again.', false);
+            say('Something went wrong. Please try again in a minute.', false);
             return;
           }
           say("You're on the list. We'll email you about launch.", true);
