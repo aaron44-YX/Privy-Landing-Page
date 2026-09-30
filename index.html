@@ -6,10 +6,6 @@
   <title>Privy | Private messenger for the Philippines</title>
   <meta name="description" content="Privy is an end-to-end encrypted messenger that signs you up with a random ID instead of your SIM. No phone number, no real name.">
   <meta name="color-scheme" content="dark">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privy | Private messenger, no phone number</title>
-  <meta name="description" content="End-to-end encrypted chat built in the
-   Philippines. Sign up without your phone number. Join the waitlist.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Privy | Private chat, no phone number">
   <meta property="og:description" content="End-to-end encrypted messenger with
@@ -17,6 +13,13 @@
   <meta property="og:image" content="https://aaron44-yx.github.io/Privy-Landing-Page/og.png">
   <meta property="og:url" content="https://aaron44-yx.github.io/Privy-Landing-Page/">
   <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="icon-512.png" type="image/png" sizes="512x512">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,9 +80,7 @@
   <header class="border-b border-line">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4">
       <a href="#top" class="flex shrink-0 items-center gap-2 text-lg font-semibold tracking-tight" aria-label="Privy home">
-        <span class="grid h-7 w-7 place-items-center rounded-md bg-teal text-canvas" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
-        </span>
+        <img src="privy-mark.svg" alt="" width="28" height="28" class="h-7 w-7 rounded-md" aria-hidden="true">
         Privy
       </a>
       <nav class="hidden items-center gap-8 text-sm text-muted md:flex" aria-label="Main">
@@ -136,9 +137,7 @@
           <div class="rounded-[28px] border border-line bg-canvas p-2">
             <div class="rounded-[22px] border border-line bg-surface p-4 sm:p-5">
               <div class="flex items-center gap-2 text-sm font-semibold">
-                <span class="grid h-6 w-6 place-items-center rounded bg-teal text-canvas" aria-hidden="true">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
-                </span>
+                <img src="privy-mark.svg" alt="" width="24" height="24" class="h-6 w-6 rounded" aria-hidden="true">
                 Privy
               </div>
 
@@ -504,9 +503,7 @@
   <footer class="border-t border-line">
     <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:px-5">
       <span class="flex items-center gap-2 font-semibold text-ink">
-        <span class="grid h-6 w-6 place-items-center rounded bg-teal text-canvas" aria-hidden="true">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
-        </span>
+        <img src="privy-mark.svg" alt="" width="24" height="24" class="h-6 w-6 rounded" aria-hidden="true">
         Privy
       </span>
       <span>&copy; 2026 Privy. All rights reserved.</span>
@@ -522,8 +519,8 @@
 
       // Replace these two values (Supabase: Project Settings > API).
       // Use the public anon/publishable key only. Never put a secret key in this file.
-      var SUPABASE_URL = 'https://djfrakoogrjehyxojeya.supabase.co';
-      var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqZnJha29vZ3JqZWh5eG9qZXlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk2NDU1NjYsImV4cCI6MjEwNTIyMTU2Nn0.k5yoDDtHNcKxOmebjQRp0G-724RKSWTx6rQRkU1Peaw';
+      var SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co';
+      var SUPABASE_ANON_KEY = 'YOUR-PUBLIC-ANON-KEY';
 
       var sb = null;
       try { sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); } catch (e) {}
